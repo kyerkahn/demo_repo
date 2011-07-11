@@ -127,3 +127,4 @@ class Docs extends CActiveRecord
 		));
 	}
 }
+
