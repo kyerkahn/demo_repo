@@ -3007,3 +3007,57 @@ Stack trace:
 2011/07/15 13:20:28 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
 in /var/www/dxapp/protected/controllers/DocsController.php (134)
 in /var/www/dxapp/index.php (13)
+2011/07/15 13:47:42 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (69)
+in /var/www/dxapp/index.php (13)
+2011/07/15 13:48:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:158
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('files/create')
+#9 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#10 /var/www/dxapp/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/index.php/files/create
+2011/07/15 13:48:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:158
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('files/create')
+#9 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#10 /var/www/dxapp/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/index.php/files/create
+2011/07/15 13:50:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:158
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('create')
+#8 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('files/create')
+#9 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#10 /var/www/dxapp/index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/index.php/files/create
+2011/07/15 13:52:31 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (69)
+in /var/www/dxapp/index.php (13)
+2011/07/15 13:54:04 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (69)
+in /var/www/dxapp/index.php (13)
+2011/07/15 13:58:12 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (69)
+in /var/www/dxapp/index.php (13)
