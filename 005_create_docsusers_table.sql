@@ -1,0 +1,4 @@
+CREATE TABLE DocsUsers (
+    doc_id INT UNSIGNED NOT NULL,
+    user_id INT UNSIGNED NOT NULL
+);

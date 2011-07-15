@@ -1,0 +1,4 @@
+ALTER TABLE Files DROP COLUMN doc_id;
+ALTER TABLE Files DROP COLUMN created_at;
+ALTER TABLE Files DROP COLUMN updated_at;
+ALTER TABLE Docs DROP COLUMN user_id;
