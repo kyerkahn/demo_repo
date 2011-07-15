@@ -2985,3 +2985,25 @@ in /var/www/dxapp/index.php (13)
 2011/07/15 12:57:48 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
 in /var/www/dxapp/protected/controllers/DocsController.php (69)
 in /var/www/dxapp/index.php (13)
+2011/07/15 13:20:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/dxapp/protected/controllers/DocsController.php:250
+Stack trace:
+#0 /var/www/dxapp/protected/controllers/DocsController.php(122): DocsController->loadModel('5')
+#1 [internal function]: DocsController->actionUpdate('5')
+#2 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(DocsController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(DocsController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/update')
+#14 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#15 /var/www/dxapp/index.php(13): CApplication->run()
+#16 {main} REQUEST_URI=/index.php/docs/update/5
+2011/07/15 13:20:28 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (134)
+in /var/www/dxapp/index.php (13)
