@@ -81,6 +81,7 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'docs' => array(self::MANY_MANY, 'Docs', 'DocsUsers(user_id, doc_id)'),
 		);
 	}
 

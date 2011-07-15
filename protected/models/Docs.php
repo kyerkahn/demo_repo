@@ -31,6 +31,28 @@ class Docs extends CActiveRecord
         'superior' => 'Для управляющих',
         'admin' => 'Для администраторов',
     );
+
+    public $user_id;
+    public $tempUsers;
+
+    /**
+     * generate tempUsers string
+     */
+    protected function afterFind()
+    {
+        $users = array();
+        foreach ($this->users as $u)
+            $users[] = $u->username;
+
+        $this->tempUsers = implode(',', $users);
+
+        //$arr = CHtml::listData($this->users, 'id', 'username');
+        //$crit = new CDbCriteria;
+        //$crit->select = 'username';
+        //var_dump($this->users);
+
+        return parent::afterFind();
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Docs the static model class
@@ -65,7 +87,7 @@ class Docs extends CActiveRecord
 			array('updated_at', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, comment, status, role, filename, guid, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, title, comment, status, role, filename, guid, created_at, updated_at, user_id', 'safe', 'on'=>'search'),
 
             array('title', 'unique'),
             array('uploadedFile', 'file'),
@@ -80,6 +102,8 @@ class Docs extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'files' => array(self::HAS_MANY, 'Files', 'doc_id'),
+            'users' => array(self::MANY_MANY, 'Users', 'DocsUsers(doc_id, user_id)'),
 		);
 	}
 
@@ -122,6 +146,10 @@ class Docs extends CActiveRecord
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
+        $criteria->distinct = true;
+        $criteria->join = 'LEFT JOIN DocsUsers ON id = DocsUsers.doc_id';
+        $criteria->compare('DocsUsers.user_id',$this->user_id,true);
+        
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

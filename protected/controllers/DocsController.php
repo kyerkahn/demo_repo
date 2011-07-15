@@ -79,13 +79,26 @@ class DocsController extends Controller
             $model->created_at = date('Y-m-d H:i:s', time());
             $model->updated_at = $model->created_at;
 
+            $model->role = 'client';
+
             $model->uploadedFile=CUploadedFile::getInstance($model, 'uploadedFile');
             if ($model->uploadedFile instanceof CUploadedFile)
                 $model->filename = $model->uploadedFile->name;
             $model->guid = uniqid();
+
 			if($model->save())
             {
                 $model->uploadedFile->saveAs('protected/data/'.$model->guid);
+
+                if (isset($_POST['Docs']['users']) && is_array($_POST['Docs']['users']))
+                    foreach ($_POST['Docs']['users'] as $u) 
+                    {
+                        $du = new DocsUsers;
+                        $du->doc_id = $model->id;
+                        $du->user_id = $u;
+                        $du->save();
+                    }
+
 				$this->redirect(array('view','id'=>$model->id));
             }
 		}
@@ -163,8 +176,10 @@ class DocsController extends Controller
         $attr = array();
 		if(isset($_GET['Docs']))
             $attr = $_GET['Docs'];
-        unset($attr['role']);
-        $attr['role'] = Yii::app()->user->role;
+        unset($attr['users']);
+        $attr['user_id'] = Yii::app()->user->userid;
+        //$attr['users'] = Users::model()->findByPk(Yii::app()->user->userid);
+        //var_dump(Users::model()->findByPk(Yii::app()->user->userid));
 
         $model->attributes = $attr;
 

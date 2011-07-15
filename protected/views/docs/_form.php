@@ -29,9 +29,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'role'); ?>
-        <?php echo $form->dropDownList($model, 'role', $model->roles); ?>
-		<?php echo $form->error($model,'role'); ?>
+		<?php echo $form->labelEx($model,'users'); ?>
+        <?php echo $form->dropDownList($model, 'users', CHtml::listData(Users::model()->findAll(), 'id', 'username'), array('multiple' => 'multiple')); ?>
+		<?php echo $form->error($model,'users'); ?>
 	</div>
 
 	<div class="row">
