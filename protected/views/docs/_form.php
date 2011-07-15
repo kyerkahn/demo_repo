@@ -31,14 +31,19 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'userList'); ?>
         <?php echo $form->dropDownList($model, 'userList', CHtml::listData(Users::model()->findAll(), 'id', 'username'), array('multiple' => 'multiple')); ?> ctrl - multiselect
-        <?php //echo $form->dropDownList($model, 'userList', array(1 => 'olo', 2 => 'ololo'), array('multiple' => 'multiple')); ?> 
 		<?php echo $form->error($model,'userList'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'uploadedFile'); ?>
-		<?php echo $form->fileField($model,'uploadedFile'); ?>
-		<?php echo $form->error($model,'uploadedFile'); ?>
+		<?php echo $form->labelEx($model,'filesToUpload'); ?>
+        <?php
+            $this->widget('CMultiFileUpload', array(
+                'model' => $model,
+                'name' => 'filesToUpload',
+                'attribute' => 'filesToUpload',
+            ));
+        ?>
+		<?php echo $form->error($model,'filesToUpload'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -32,14 +32,6 @@ class DocsController extends Controller
 				'actions'=>array('index','view','download','create','update','delete'),
 				'users'=>array('@'),
 			),
-			/*array('allow', //Чорт, вначале сделал, а потом прочитал, что у всех пользователей одинаковые привилегия... 
-				'actions'=>array('index','view','download'),
-				'users'=>array('@'),
-			),
-			array('allow',  
-				'actions'=>array('create','update','delete'),
-                'users'=>$users->getUserListByRole(array('superior', 'employee', 'admin')),
-            ),*/
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin'),
                 'users'=>$users->getUserListByRole('admin'),
@@ -79,18 +71,28 @@ class DocsController extends Controller
             $model->created_at = date('Y-m-d H:i:s', time());
             $model->updated_at = $model->created_at;
 
-            $model->role = 'client';
+            $model->role = 'client'; //TODO DEL
+            $model->filename = 'client'; //TODO DEL
+            $model->guid = 'client'; //TODO DEL
 
-            $model->uploadedFile=CUploadedFile::getInstance($model, 'uploadedFile');
-            if ($model->uploadedFile instanceof CUploadedFile)
-                $model->filename = $model->uploadedFile->name;
-            $model->guid = uniqid();
+            $model->filesToUpload=CUploadedFile::getInstancesByName('filesToUpload');
 
-            $model->userList = $_POST['Docs']['userList'];
+            if (isset($_POST['Docs']['userList']))
+                $model->userList = $_POST['Docs']['userList'];
 
 			if($model->save())
             {
-                $model->uploadedFile->saveAs('uploads/'.$model->guid);
+                if (isset($model->filesToUpload) && count($model->filesToUpload)>0)
+                    foreach($model->filesToUpload as $f)
+                    {
+                        $file = new Files;
+                        $file->doc_id = $model->id;
+                        $file->filename = $f->name;
+                        $file->guid = uniqid();
+                        $file->save();
+
+                        $f->saveAs('uploads/'.$file->guid);
+                    }
 
                 if (isset($model->userList) && is_array($model->userList))
                     foreach ($model->userList as $u) 
@@ -191,16 +193,11 @@ class DocsController extends Controller
 		$model=new Docs('search');
 		$model->unsetAttributes();  // clear any default values
         
-		//$model=Docs::model()->findAll('role = :role', array(':role'=>Yii::app()->user->role));
-		//$model=Docs::model()->findAll('role = :role', array(':role'=>'employee'));
-
         $attr = array();
 		if(isset($_GET['Docs']))
             $attr = $_GET['Docs'];
-        unset($attr['users']);
+        unset($attr['userId']);
         $attr['userId'] = Yii::app()->user->userid;
-        //$attr['users'] = Users::model()->findByPk(Yii::app()->user->userid);
-        //var_dump(Users::model()->findByPk(Yii::app()->user->userid));
 
         $model->attributes = $attr;
 
@@ -232,20 +229,6 @@ class DocsController extends Controller
 			'model'=>$model,
 		));
 	}
-
-    public function actionDownload($id)
-    {
-        $model=$this->loadModel($id);
-        $fname='uploads/'.$model->guid;
-        $this->renderPartial('download', array(
-                'fname' => $fname,
-                'lname' => $model->filename,
-                'ctype' => 'application/octet-stream',
-            ),
-            false,
-            true
-        );
-    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

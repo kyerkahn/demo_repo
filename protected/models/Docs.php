@@ -16,7 +16,7 @@
  */
 class Docs extends CActiveRecord
 {
-    public $uploadedFile;
+    public $filesToUpload;
 
     public $statuses = array (
         'discussion' => 'На рассмотрение',
@@ -81,7 +81,7 @@ class Docs extends CActiveRecord
 			array('id, title, comment, status, role, filename, guid, created_at, updated_at, userId', 'safe', 'on'=>'search'),
 
             array('title', 'unique'),
-            array('uploadedFile', 'file'),
+            array('filesToUpload', 'file', 'allowEmpty'=>true),
 		);
 	}
 

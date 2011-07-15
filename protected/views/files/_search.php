@@ -11,11 +11,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'doc_id'); ?>
-		<?php echo $form->textField($model,'doc_id',array('size'=>10,'maxlength'=>10)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'filename'); ?>
 		<?php echo $form->textField($model,'filename',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
@@ -26,13 +21,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'created_at'); ?>
-		<?php echo $form->textField($model,'created_at'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'updated_at'); ?>
-		<?php echo $form->textField($model,'updated_at'); ?>
+		<?php echo $form->label($model,'doc_id'); ?>
+		<?php echo $form->textField($model,'doc_id',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row buttons">

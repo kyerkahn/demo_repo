@@ -43,11 +43,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'doc_id',
 		'filename',
 		'guid',
-		'created_at',
-		'updated_at',
+		'doc_id',
 		array(
 			'class'=>'CButtonColumn',
 		),

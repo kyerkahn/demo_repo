@@ -5,14 +5,14 @@
  *
  * The followings are the available columns in table 'Files':
  * @property string $id
- * @property string $doc_id
  * @property string $filename
  * @property string $guid
- * @property string $created_at
- * @property string $updated_at
+ * @property string $doc_id
  */
 class Files extends CActiveRecord
 {
+    public $userId;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Files the static model class
@@ -38,14 +38,13 @@ class Files extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('doc_id, filename, guid, created_at', 'required'),
-			array('doc_id', 'length', 'max'=>10),
+			array('filename, guid, doc_id', 'required'),
 			array('filename', 'length', 'max'=>100),
 			array('guid', 'length', 'max'=>40),
-			array('updated_at', 'safe'),
+			array('doc_id', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, doc_id, filename, guid, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, filename, guid, doc_id, userId', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,11 +67,9 @@ class Files extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'doc_id' => 'Doc',
 			'filename' => 'Filename',
 			'guid' => 'Guid',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
+			'doc_id' => 'Doc',
 		);
 	}
 
@@ -88,11 +85,13 @@ class Files extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('doc_id',$this->doc_id,true);
 		$criteria->compare('filename',$this->filename,true);
 		$criteria->compare('guid',$this->guid,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
+		$criteria->compare('DocsUsers.doc_id',$this->doc_id,true);
+
+        $criteria->distinct = true;
+        $criteria->join = 'INNER JOIN Docs ON Docs.id = doc_id INNER JOIN DocsUsers ON DocsUsers.doc_id = Docs.id';
+        $criteria->compare('DocsUsers.user_id',$this->userId,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

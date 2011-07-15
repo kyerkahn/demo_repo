@@ -10,12 +10,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'doc_id'); ?>
-		<?php echo $form->textField($model,'doc_id',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'doc_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'filename'); ?>
 		<?php echo $form->textField($model,'filename',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'filename'); ?>
@@ -28,15 +22,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'created_at'); ?>
-		<?php echo $form->textField($model,'created_at'); ?>
-		<?php echo $form->error($model,'created_at'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'updated_at'); ?>
-		<?php echo $form->textField($model,'updated_at'); ?>
-		<?php echo $form->error($model,'updated_at'); ?>
+		<?php echo $form->labelEx($model,'doc_id'); ?>
+		<?php echo $form->textField($model,'doc_id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'doc_id'); ?>
 	</div>
 
 	<div class="row buttons">

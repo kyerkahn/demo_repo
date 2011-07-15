@@ -19,10 +19,8 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'doc_id',
 		'filename',
 		'guid',
-		'created_at',
-		'updated_at',
+		'doc_id',
 	),
 )); ?>

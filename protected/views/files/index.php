@@ -11,7 +11,17 @@ $this->menu=array(
 
 <h1>Files</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'dataProvider' => $dataProvider,
+    'filter' => $model,
+    'columns'=>array (
+        array (
+            'class' => 'CLinkColumn',
+            'labelExpression' => '$data->filename',
+            'urlExpression' => '"/index.php/files/download/".$data->id',
+            'header' => 'Files',
+        ),
+    )
+));
+?>

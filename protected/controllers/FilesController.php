@@ -25,18 +25,16 @@ class FilesController extends Controller
 	 */
 	public function accessRules()
 	{
+        $users = new Users();
+
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+			array('allow', 
+				'actions'=>array('index','view','download','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions'=>array('create','update','admin'),
+                'users'=>$users->getUserListByRole('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -127,9 +125,25 @@ class FilesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Files');
+		$model=new Files('search');
+		$model->unsetAttributes();  // clear any default values
+
+        $attr = array();
+		if(isset($_GET['Files']))
+            $attr = $_GET['Files'];
+        unset($attr['userId']);
+
+        $attr['userId'] = Yii::app()->user->userid;
+        $model->attributes = $attr;
+
+        $dataProvider = $model->search();
+        $dataProvider->pagination = array(
+            'pageSize'=>8,
+        );
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 
@@ -147,6 +161,20 @@ class FilesController extends Controller
 			'model'=>$model,
 		));
 	}
+
+    public function actionDownload($id)
+    {
+        $model=$this->loadModel($id);
+        $fname='uploads/'.$model->guid;
+        $this->renderPartial('download', array(
+                'fname' => $fname,
+                'lname' => $model->filename,
+                'ctype' => 'application/octet-stream',
+            ),
+            false,
+            true
+        );
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
