@@ -71,10 +71,6 @@ class DocsController extends Controller
             $model->created_at = date('Y-m-d H:i:s', time());
             $model->updated_at = $model->created_at;
 
-            $model->role = 'client'; //TODO DEL
-            $model->filename = 'client'; //TODO DEL
-            $model->guid = 'client'; //TODO DEL
-
             $model->filesToUpload=CUploadedFile::getInstancesByName('filesToUpload');
 
             if (isset($_POST['Docs']['userList']))
@@ -134,16 +130,24 @@ class DocsController extends Controller
 			$model->attributes=$_POST['Docs'];
             $model->updated_at = date('Y-m-d H:i:s', time());
 
-            $model->uploadedFile=CUploadedFile::getInstance($model, 'uploadedFile');
-            if ($model->uploadedFile instanceof CUploadedFile)
-                $model->filename = $model->uploadedFile->name;
-            $model->guid = uniqid();
+            $model->filesToUpload=CUploadedFile::getInstancesByName('filesToUpload');
 
-            $model->userList = $_POST['Docs']['userList'];
+            if (isset($_POST['Docs']['userList']))
+                $model->userList = $_POST['Docs']['userList'];
 
 			if($model->save())
             {
-                $model->uploadedFile->saveAs('uploads/'.$model->guid);
+                if (isset($model->filesToUpload) && count($model->filesToUpload)>0)
+                    foreach($model->filesToUpload as $f)
+                    {
+                        $file = new Files;
+                        $file->doc_id = $model->id;
+                        $file->filename = $f->name;
+                        $file->guid = uniqid();
+                        $file->save();
+
+                        $f->saveAs('uploads/'.$file->guid);
+                    }
 
                 $data = DocsUsers::model()->deleteAll('doc_id=:doc_id', array(':doc_id' => $model->id));
                 

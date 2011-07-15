@@ -16,18 +16,6 @@
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('role')); ?>:</b>
-	<?php echo CHtml::encode($data->role); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('filename')); ?>:</b>
-	<?php echo CHtml::encode($data->filename); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('guid')); ?>:</b>
-	<?php echo CHtml::encode($data->guid); ?>
-	<br />
-
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_at')); ?>:</b>
 	<?php echo CHtml::encode($data->created_at); ?>

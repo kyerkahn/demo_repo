@@ -26,21 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'role'); ?>
-		<?php echo $form->textField($model,'role',array('size'=>8,'maxlength'=>8)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'filename'); ?>
-		<?php echo $form->textField($model,'filename',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'guid'); ?>
-		<?php echo $form->textField($model,'guid',array('size'=>40,'maxlength'=>40)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'created_at'); ?>
 		<?php echo $form->textField($model,'created_at'); ?>
 	</div>

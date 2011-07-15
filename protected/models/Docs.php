@@ -8,9 +8,6 @@
  * @property string $title
  * @property string $comment
  * @property string $status
- * @property string $role
- * @property string $filename
- * @property string $guid
  * @property string $created_at
  * @property string $updated_at
  */
@@ -23,13 +20,6 @@ class Docs extends CActiveRecord
         'insight' => 'На ознакомление',
         'draft' => 'Черновик',
         'archive' => 'В архив',
-    );
-
-    public $roles = array (
-        'client' => 'Для клиентов',
-        'employee' => 'Для работников',
-        'superior' => 'Для управляющих',
-        'admin' => 'Для администраторов',
     );
 
     public $userList;
@@ -69,16 +59,14 @@ class Docs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, status, role, filename, guid, created_at, updated_at', 'required'),
+			array('title, status, created_at, updated_at', 'required'),
 			array('title', 'length', 'max'=>50),
-			array('comment, filename', 'length', 'max'=>100),
+			array('comment', 'length', 'max'=>100),
 			array('status', 'length', 'max'=>10),
-			array('role', 'length', 'max'=>8),
-			array('guid', 'length', 'max'=>40),
 			array('updated_at', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, comment, status, role, filename, guid, created_at, updated_at, userId', 'safe', 'on'=>'search'),
+			array('id, title, comment, status, created_at, updated_at, userId', 'safe', 'on'=>'search'),
 
             array('title', 'unique'),
             array('filesToUpload', 'file', 'allowEmpty'=>true),
@@ -108,9 +96,6 @@ class Docs extends CActiveRecord
 			'title' => 'Title',
 			'comment' => 'Comment',
 			'status' => 'Status',
-			'role' => 'Role',
-			'filename' => 'Filename',
-			'guid' => 'Guid',
 			'created_at' => 'Created At',
 			'updated_at' => 'Updated At',
 		);
@@ -131,9 +116,6 @@ class Docs extends CActiveRecord
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('status',$this->status,true);
-		$criteria->compare('role',$this->role,true);
-		$criteria->compare('filename',$this->filename,true);
-		$criteria->compare('guid',$this->guid,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
