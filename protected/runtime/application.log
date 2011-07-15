@@ -2079,3 +2079,239 @@ Stack trace:
 #3 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
 #4 /var/www/dxapp/index.php(13): CApplication->run()
 #5 {main} REQUEST_URI=/index.php/docs/docs/download/38
+2011/07/15 09:15:37 [warning] [application] Failed to set unsafe attribute "users" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:18:59 [warning] [application] Failed to set unsafe attribute "userId" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (184)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:20:52 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:21:09 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:21:40 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:23:08 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:23:44 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:25:06 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:25:57 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:26:01 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:26:30 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:26:33 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:30:36 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:33:14 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:33:18 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:34:31 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:34:39 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:46:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "c".' in /var/www/yii/framework/web/CController.php:477
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(262): CController->missingAction('c')
+#1 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('c')
+#2 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/c')
+#3 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#4 /var/www/dxapp/index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/index.php/docs/c
+2011/07/15 09:51:35 [error] [exception.CException] exception 'CException' with message 'Property "DocsController.users" is not defined.' in /var/www/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/dxapp/protected/controllers/DocsController.php(123): CComponent->__get('users')
+#1 [internal function]: DocsController->actionUpdate('42')
+#2 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(DocsController), Array)
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(DocsController), Object(ReflectionMethod), Array)
+#4 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('update')
+#13 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/update')
+#14 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#15 /var/www/dxapp/index.php(13): CApplication->run()
+#16 {main} REQUEST_URI=/index.php/docs/update/42
+2011/07/15 09:53:12 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:01:59 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:01:59 [error] [php] Cannot modify header information - headers already sent by (output started at /var/www/dxapp/protected/controllers/DocsController.php:147) (/var/www/yii/framework/web/CHttpRequest.php:657)
+Stack trace:
+#0 /var/www/dxapp/protected/controllers/DocsController.php(159): DocsController->redirect()
+#1 unknown(0): DocsController->actionUpdate()
+#2 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#4 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams()
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): DocsController->runAction()
+#6 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1144): CAccessControlFilter->filter()
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(59): DocsController->filterAccessControl()
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(257): DocsController->runActionWithFilters()
+#12 /var/www/yii/framework/web/CWebApplication.php(277): DocsController->run()
+#13 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController()
+#14 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#15 /var/www/dxapp/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/docs/update/42
+in /var/www/dxapp/protected/controllers/DocsController.php (159)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:02:38 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:02:44 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:04:55 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:05:01 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:08:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('view/view')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/dxapp/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/index.php/view/42
+2011/07/15 10:08:36 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:09:34 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:09:34 [error] [php] Undefined variable: du (/var/www/dxapp/protected/controllers/DocsController.php:148)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(134): DocsController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1144): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(59): DocsController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(257): DocsController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(277): DocsController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#12 /var/www/dxapp/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/docs/update/42
+in /var/www/dxapp/protected/controllers/DocsController.php (148)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:09:42 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:09:42 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in /var/www/yii/framework/db/schema/CDbCommandBuilder.php:701
+Stack trace:
+#0 /var/www/yii/framework/db/schema/CDbCommandBuilder.php(496): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1741): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1162): CActiveRecord->deleteByPk(NULL)
+#3 /var/www/dxapp/protected/controllers/DocsController.php(148): CActiveRecord->delete()
+#4 [internal function]: DocsController->actionUpdate('42')
+#5 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(DocsController), Array)
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(DocsController), Object(ReflectionMethod), Array)
+#7 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('update')
+#16 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/update')
+#17 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#18 /var/www/dxapp/index.php(13): CApplication->run()
+#19 {main} REQUEST_URI=/index.php/docs/update/42
+2011/07/15 10:10:05 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:10:05 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in /var/www/yii/framework/db/schema/CDbCommandBuilder.php:701
+Stack trace:
+#0 /var/www/yii/framework/db/schema/CDbCommandBuilder.php(496): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1741): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(1162): CActiveRecord->deleteByPk(NULL)
+#3 /var/www/dxapp/protected/controllers/DocsController.php(148): CActiveRecord->delete()
+#4 [internal function]: DocsController->actionUpdate('42')
+#5 /var/www/yii/framework/web/actions/CAction.php(104): ReflectionMethod->invokeArgs(Object(DocsController), Array)
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(DocsController), Object(ReflectionMethod), Array)
+#7 /var/www/yii/framework/web/CController.php(300): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1144): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(283): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('update')
+#16 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/update')
+#17 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#18 /var/www/dxapp/index.php(13): CApplication->run()
+#19 {main} REQUEST_URI=/index.php/docs/update/42
+2011/07/15 10:11:49 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:12:40 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:12:50 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:14:20 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:14:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "view/view".' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('view/view')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/dxapp/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/index.php/view/43
+2011/07/15 10:15:57 [warning] [application] Failed to set unsafe attribute "userList" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (132)
+in /var/www/dxapp/index.php (13)
+2011/07/15 10:16:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "download/view".' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('download/view')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/dxapp/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/index.php/download/43
+2011/07/15 10:16:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "download/view".' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('download/view')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/dxapp/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/index.php/download/43
+2011/07/15 10:16:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "download/view".' in /var/www/yii/framework/web/CWebApplication.php:281
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('download/view')
+#1 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#2 /var/www/dxapp/index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/index.php/download/43

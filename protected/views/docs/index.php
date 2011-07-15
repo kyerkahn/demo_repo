@@ -17,6 +17,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $dataProvider,
     'filter' => $model,
     'columns'=>array (
+        array (
+            'class' => 'CLinkColumn',
+            'labelExpression' => '$data->id',
+            'urlExpression' => '"docs/view/".$data->id',
+            'header' => '#',
+        ),
         'title',
         array (
             'name' => 'comment',
@@ -29,7 +35,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array (
             'class' => 'CLinkColumn',
             'labelExpression' => '$data->filename',
-            'urlExpression' => '"download/".$data->id',
+            'urlExpression' => '"docs/download/".$data->id',
             'header' => 'File',
         ),
         array (

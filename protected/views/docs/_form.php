@@ -29,9 +29,10 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'users'); ?>
-        <?php echo $form->dropDownList($model, 'users', CHtml::listData(Users::model()->findAll(), 'id', 'username'), array('multiple' => 'multiple')); ?>
-		<?php echo $form->error($model,'users'); ?>
+		<?php echo $form->labelEx($model,'userList'); ?>
+        <?php echo $form->dropDownList($model, 'userList', CHtml::listData(Users::model()->findAll(), 'id', 'username'), array('multiple' => 'multiple')); ?> ctrl - multiselect
+        <?php //echo $form->dropDownList($model, 'userList', array(1 => 'olo', 2 => 'ololo'), array('multiple' => 'multiple')); ?> 
+		<?php echo $form->error($model,'userList'); ?>
 	</div>
 
 	<div class="row">

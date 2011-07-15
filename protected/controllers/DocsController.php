@@ -86,12 +86,14 @@ class DocsController extends Controller
                 $model->filename = $model->uploadedFile->name;
             $model->guid = uniqid();
 
+            $model->userList = $_POST['Docs']['userList'];
+
 			if($model->save())
             {
                 $model->uploadedFile->saveAs('uploads/'.$model->guid);
 
-                if (isset($_POST['Docs']['users']) && is_array($_POST['Docs']['users']))
-                    foreach ($_POST['Docs']['users'] as $u) 
+                if (isset($model->userList) && is_array($model->userList))
+                    foreach ($model->userList as $u) 
                     {
                         $du = new DocsUsers;
                         $du->doc_id = $model->id;
@@ -117,6 +119,11 @@ class DocsController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+        $userList = array();
+        foreach ($model->users as $u)
+            $userList[] = $u->id;
+        $model->userList = $userList;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -130,9 +137,23 @@ class DocsController extends Controller
                 $model->filename = $model->uploadedFile->name;
             $model->guid = uniqid();
 
+            $model->userList = $_POST['Docs']['userList'];
+
 			if($model->save())
             {
                 $model->uploadedFile->saveAs('uploads/'.$model->guid);
+
+                $data = DocsUsers::model()->deleteAll('doc_id=:doc_id', array(':doc_id' => $model->id));
+                
+                if (isset($model->userList) && is_array($model->userList))
+                    foreach ($model->userList as $u) 
+                    {
+                        $du = new DocsUsers;
+                        $du->doc_id = $model->id;
+                        $du->user_id = $u;
+                        $du->save();
+                    }
+
 				$this->redirect(array('view','id'=>$model->id));
             }
 		}
@@ -177,7 +198,7 @@ class DocsController extends Controller
 		if(isset($_GET['Docs']))
             $attr = $_GET['Docs'];
         unset($attr['users']);
-        $attr['user_id'] = Yii::app()->user->userid;
+        $attr['userId'] = Yii::app()->user->userid;
         //$attr['users'] = Users::model()->findByPk(Yii::app()->user->userid);
         //var_dump(Users::model()->findByPk(Yii::app()->user->userid));
 

@@ -32,7 +32,8 @@ class Docs extends CActiveRecord
         'admin' => 'Для администраторов',
     );
 
-    public $user_id;
+    public $userList;
+    public $userId;
     public $tempUsers;
 
     /**
@@ -40,16 +41,6 @@ class Docs extends CActiveRecord
      */
     protected function afterFind()
     {
-        $users = array();
-        foreach ($this->users as $u)
-            $users[] = $u->username;
-
-        $this->tempUsers = implode(',', $users);
-
-        //$arr = CHtml::listData($this->users, 'id', 'username');
-        //$crit = new CDbCriteria;
-        //$crit->select = 'username';
-        //var_dump($this->users);
 
         return parent::afterFind();
     }
@@ -87,7 +78,7 @@ class Docs extends CActiveRecord
 			array('updated_at', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, comment, status, role, filename, guid, created_at, updated_at, user_id', 'safe', 'on'=>'search'),
+			array('id, title, comment, status, role, filename, guid, created_at, updated_at, userId', 'safe', 'on'=>'search'),
 
             array('title', 'unique'),
             array('uploadedFile', 'file'),
@@ -148,7 +139,7 @@ class Docs extends CActiveRecord
 
         $criteria->distinct = true;
         $criteria->join = 'LEFT JOIN DocsUsers ON id = DocsUsers.doc_id';
-        $criteria->compare('DocsUsers.user_id',$this->user_id,true);
+        $criteria->compare('DocsUsers.user_id',$this->userId,true);
         
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
