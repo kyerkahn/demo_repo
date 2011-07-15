@@ -88,7 +88,7 @@ class DocsController extends Controller
 
 			if($model->save())
             {
-                $model->uploadedFile->saveAs('protected/data/'.$model->guid);
+                $model->uploadedFile->saveAs('uploads/'.$model->guid);
 
                 if (isset($_POST['Docs']['users']) && is_array($_POST['Docs']['users']))
                     foreach ($_POST['Docs']['users'] as $u) 
@@ -132,7 +132,7 @@ class DocsController extends Controller
 
 			if($model->save())
             {
-                $model->uploadedFile->saveAs('protected/data/'.$model->guid);
+                $model->uploadedFile->saveAs('uploads/'.$model->guid);
 				$this->redirect(array('view','id'=>$model->id));
             }
 		}
@@ -215,7 +215,7 @@ class DocsController extends Controller
     public function actionDownload($id)
     {
         $model=$this->loadModel($id);
-        $fname='protected/data/'.$model->guid;
+        $fname='uploads/'.$model->guid;
         $this->renderPartial('download', array(
                 'fname' => $fname,
                 'lname' => $model->filename,

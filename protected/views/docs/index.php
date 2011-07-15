@@ -29,7 +29,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array (
             'class' => 'CLinkColumn',
             'labelExpression' => '$data->filename',
-            'urlExpression' => '"docs/download/".$data->id',
+            'urlExpression' => '"download/".$data->id',
             'header' => 'File',
         ),
         array (

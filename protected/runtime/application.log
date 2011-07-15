@@ -2052,3 +2052,30 @@ in /var/www/dxapp/index.php (13)
 2011/07/15 08:47:53 [warning] [application] Failed to set unsafe attribute "users" of "Docs".
 in /var/www/dxapp/protected/controllers/DocsController.php (77)
 in /var/www/dxapp/index.php (13)
+2011/07/15 09:01:20 [warning] [application] Failed to set unsafe attribute "users" of "Docs".
+in /var/www/dxapp/protected/controllers/DocsController.php (77)
+in /var/www/dxapp/index.php (13)
+2011/07/15 09:01:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "docs".' in /var/www/yii/framework/web/CController.php:477
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(262): CController->missingAction('docs')
+#1 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('docs')
+#2 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/docs/downl...')
+#3 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#4 /var/www/dxapp/index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/index.php/docs/docs/download/40
+2011/07/15 09:01:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "docs".' in /var/www/yii/framework/web/CController.php:477
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(262): CController->missingAction('docs')
+#1 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('docs')
+#2 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/docs/downl...')
+#3 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#4 /var/www/dxapp/index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/index.php/docs/docs/download/40
+2011/07/15 09:01:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "docs".' in /var/www/yii/framework/web/CController.php:477
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(262): CController->missingAction('docs')
+#1 /var/www/yii/framework/web/CWebApplication.php(277): CController->run('docs')
+#2 /var/www/yii/framework/web/CWebApplication.php(136): CWebApplication->runController('docs/docs/downl...')
+#3 /var/www/yii/framework/base/CApplication.php(158): CWebApplication->processRequest()
+#4 /var/www/dxapp/index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/index.php/docs/docs/download/38
